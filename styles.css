@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1e90ff; /* Dodger Blue */
+    color: white;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+header .tagline {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Photo Gallery */
+.gallery {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2em;
+    color: #1e90ff;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Subtle Rock Graphics (Background) */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('rock-pattern.png') repeat; /* Replace with a rock pattern image */
+    opacity: 0.1;
+    z-index: -1;
+}
