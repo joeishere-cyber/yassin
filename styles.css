@@ -1,11 +1,35 @@
 /* General Styles */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff; /* Light blue background */
+    font-family: 'Roboto', sans-serif;
+    background: url('stone-texture.jpg') repeat; /* Stone texture background */
+    background-size: auto; /* Adjust size as needed */
+    background-color: #f0f8ff; /* Fallback light blue */
     color: #333;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #1e90ff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 /* Header */
@@ -28,20 +52,45 @@ header .tagline {
     font-style: italic;
 }
 
-/* Photo Gallery */
-.gallery {
+.icon {
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    color: white;
+}
+
+.football { left: 20px; }
+.controller { right: 20px; }
+
+/* Animation for Sections */
+.animated {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#gallery { animation-delay: 0.5s; }
+#wishes { animation-delay: 1s; }
+#fun-facts { animation-delay: 1.5s; }
+
+section {
     padding: 20px;
     text-align: center;
 }
 
-.gallery h2 {
+section h2 {
     font-size: 2em;
     color: #1e90ff;
 }
 
+/* Photo Gallery */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -51,11 +100,48 @@ header .tagline {
     height: auto;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 10px solid #8B4513; /* Rock-like border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .photo-grid img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8); /* Blue glow */
+}
+
+/* Wishes Section */
+.wish-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Fun Facts Section */
+#fun-facts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#fun-facts li {
+    background-color: #e6f2ff;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+/* Footer */
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
 
 /* Lightbox */
@@ -77,15 +163,33 @@ header .tagline {
     border-radius: 10px;
 }
 
-/* Subtle Rock Graphics (Background) */
-body::before {
+/* Balloons */
+.balloon {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: #1e90ff;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.balloon::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('rock-pattern.png') repeat; /* Replace with a rock pattern image */
-    opacity: 0.1;
-    z-index: -1;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background-color: #333;
+}
+
+.balloon1 { left: 10%; animation-duration: 5s; }
+.balloon2 { left: 50%; animation-duration: 7s; }
+.balloon3 { left: 80%; animation-duration: 6s; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
